@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Overzicht from "./pages/Overzicht";
+import {Facturen, Factuur1, Factuur2, Factuur3} from "./pages/Facturen";
+import Team from "./pages/Team";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <Sidebar/>
+        <Routes>
+          <Route path="/overzicht" exact component={Overzicht}/>
+          <Route path="/facturen" exact component={Facturen}/>
+          <Route path="/facturen/factuur1" exact component={Factuur1}/>
+          <Route path="/facturen/factuur2" exact component={Factuur2}/>
+          <Route path="/facturen/factuur3" exact component={Factuur3}/>
+          <Route path="/team" exact component={Team}/>
+        </Routes>
+      </>
   );
 }
 
